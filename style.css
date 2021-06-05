@@ -1,0 +1,174 @@
+
+/* Elements principaux de la page */  
+
+#bloc_page {
+    margin:auto;  /* on centre le design */
+    width:100%;  /* on englobe toute la page pour fixer ses limites à 100% de l'espace disponible indispensable pour faire des rem plus tard*/
+}
+
+body {
+    font-family: Raleway, sans-serif;
+}
+
+
+/* HEADER */
+
+
+header
+{
+    display: flex;  /* on permet au header de s'aligner à côté de la nav, qui est aussi un élément flex */
+    justify-content:space-around; /* on espace les éléments et on ajoute un espace à gauche et à droite du contenu */
+}
+
+.bloc_search {
+    display:inline-flex; /* on aligne les enfants (map marker+ barre de recherche + bouton rechercher */
+    overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec nom à rallonge) */
+}
+
+.map_marker {
+    background-color: #F2F2F2;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem 0 0 1rem;
+}
+
+#search_barre {
+    font-size:1rem;
+    border-right: none;
+    border-left: none;
+    border-top: #F2F2F2 1px solid;
+    border-bottom: #F2F2F2 1px solid;
+    padding: 0 1.5rem;
+    box-sizing: border-box; /* on permet à la barre de recherche et au bouton de rester collés ensemble */
+    width: 14rem;
+}
+
+#bouton {
+    background-color: #0065FC;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+}
+
+#Filtres {
+    display:inline-flex; /* on aligne les filtres côte à côte pour qu'ils soient pas les uns sous les autres */
+    justify-content:space-around; /* on les espace et on ajoute un espace à gauche et à droite du contenu */
+    margin-top:2rem;
+    }
+    
+#Label {
+    margin-right:15px;
+    font-weight:bold;
+    font-size:18px;
+    margin-top:1.5rem;
+    }
+
+.bloc {
+    display:flex; /* on permet au texte de se positionner côte à côte de l'icône) */
+    align-items: center; /* on aligne verticalement le texte avec l'icone */
+    margin-right: 2rem;
+    border: 2px solid #d9d9d9;
+    border-radius: 2rem;
+    margin-bottom: 1rem;    
+    font-weight: bold;
+    max-height:3.5rem; /* empecher div de grossir quand on zoom */
+    min-height:3.5rem; /* empecher div de se réduire quand on zoom */
+}
+    
+.circle {
+  
+    background-color: #DEEBFF;
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+    min-height: 3.5rem; /* empecher cercle de rétrécir en hauteur */
+    min-width: 3.5rem; /* empecher cercle de rétrécir en largeur */
+
+    display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur*/
+    align-items: center;
+    justify-content: center;
+}
+
+i {
+    color:#0065FC;
+}
+
+.txt {
+    padding:20px;
+    font-size:18px;
+    white-space: nowrap; /* empeche le retour à la ligne d'un texte */
+}
+
+
+#Infos {
+    display:flex; /* on met côte à côte les éléments (i infos + texte) dans la div */
+    align-items:center; /* on les centre verticalement dans la div */
+}
+
+#circle2 {
+    height: 2rem;
+    width: 2rem;
+    min-height: 2rem; /* empecher cercle de rétrécir en hauteur */
+    min-width: 2rem; /* empecher cercle de rétrécir en largeur */
+    border: solid 1px #d9d9d9;
+    border-radius: 100%;
+
+    display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur */
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem; /* on laisse 1rem d'espace entre le i cerclé et le texte qui suit */
+}
+
+
+/* NAV */
+
+
+nav ul {
+    list-style-type: none; /* on retire les puces de la liste à puce */
+    display:flex; /* on aligne les liens de la nav côte à côte */
+    }
+
+
+nav li {
+    margin-right: 35px; /* on espace les liens de 35px */
+       }
+
+/* voir page 44 cours html pour les modifs de liens et de liens survolés */
+
+
+/* SECTION */
+
+section {
+   display:flex; /* on met côte à côte l'article et l'aside */
+   justify-content: space-around; /* on les espace et on ajoute un espace à leur gauche et à leur droite */
+}
+
+/* ARTICLE */
+
+article {
+    display:flex; /* on permet aux photos de s'aligner côte à côte */
+}
+
+img { /* article img ? */
+
+    width:236px;
+}
+
+/* ASIDE */
+
+.i_color {
+    color:black;  /* mettre nom de classe dans la balise de l'icone, juste après fa fa-star etc.. et entre les guillemets */
+}
+
+
+.i_color2 {
+    color:#d9d9d9;
+}
+
+
+
+
+
+
