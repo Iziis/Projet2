@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            
+            <!-- On va faire en sorte d'afficher quasiment tous les symboles de toutes les langues au monde -->
+            <meta charset="utf-8" /> 
+
+            <!-- On va demander à ce que le viewport soit le même que la largeur de l'écran, pour un rendu facile à lire et sans zoom sur mobile -->
+            <meta name="viewport" content="width=device-width" /> 
+
+            <link rel="stylesheet" href="style.css" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500;600&display=swap" rel="stylesheet">
+            <title>Reservia par OpenClassrooms - Trouvez votre hébergement pour des vacances de rêve</title>
+
+            <!-- On va définir la description qui apparaitra en plus du titre si on partage le site depuis les réseaux sociaux  -->
+            <meta name="description" content="Reservia, trouvez votre hébergement pour des vacances de rêves en plein centre ville, ou en pleine nature."/>
+
+            <!-- On va optimiser les informations qui seront affichées lorsqu'un lien vers le site sera partagé sur Facebook, grâce à l'Open Graph -->
+            <meta property="og:title" content="Reservia par OpenClassrooms - Trouvez votre hébergement pour des vacances de rêve"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:url" content="http://reservia.iscialefebvre.com/"/>
+            <meta property="og:description" content="Reservia, trouvez votre hébergement pour des vacances de rêves en plein centre ville, ou en pleine nature."/>
+            <!-- <meta property="og:image" content="http://example.com/image.jpg"/> -->
+
+            <!-- On va optimiser les informations qui seront affichées lorsqu'un lien vers le site sera partagé sur Twitter, grâce aux Twitter Cards -->
+            <meta name="twitter:card" content="summary_large_image"/>
+            <meta name="twitter:site" content="@skai_a"/>
+            <meta name="twitter:title" content="Reservia par OpenClassrooms - Trouvez votre hébergement pour des vacances de rêve"/>
+            <meta name="twitter:description" content="Reservia, trouvez votre hébergement pour des vacances de rêves en plein centre ville, ou en pleine nature."/>
+            <meta name="twitter:url" content="http://reservia.iscialefebvre.com/"/>  
+            <!-- <meta name="twitter:image" content="https://monsiteweb/images/uneimage.jpg" /> -->
+
+            <!-- On permet aux icones de font awesome de s'afficher-->
+            <script src="https://kit.fontawesome.com/bc16bd05c7.js" crossorigin="anonymous"></script>
+
+        </head>
+
+        <body>
+
+            <div id="bloc_page">
+
+                <header>
+
+                    <div id="Search">
+                        
+                        <img src="logo/Reservia.svg" alt="Logo" />
+                        <h1>Trouvez votre hébergement pour des vacances de rêve</h1> 
+                        <p>En plein centre ville ou en pleine nature</p>
+                     
+                            <form method="post" action="traitement.php">
+                            
+                                <p class="bloc_search"> 
+                                    <span class="map_marker">
+                                        <i class="fas fa-map-marker-alt i_color"></i>
+                                    </span>
+
+                                <label for="localisation"></label>
+                                <input id="search_barre" type="text" name="localisation" id="localisation" placeholder="Marseille, France" size="" maxlength="10"/>
+
+                                <button id="bouton"><div id="bouton_texte">Rechercher</div></button> <!-- bouton -->
+                            </p>
+
+                           </form>
+
+                           
+
+                        <div id="Filtres">
+                   
+                            <h2 id="Label">Filtres</h2>
+
+                            
+                            <div class="bloc"><div class="circle"><i class="fas fa-money-bill-wave"></i></div><span class="txt">Économique</span></div>
+                            <div class="bloc"><div class="circle"><i class="fas fa-child"></i></div><span class="txt">Familial</span></div>
+                            <div class="bloc"><div class="circle"><i class="fas fa-heart"></i></div><span class="txt">Romantique</span></div>
+                            <div class="bloc"><div class="circle"><i class="fas fa-dog"></i></div><span class="txt">Animaux autorisés</span></div>
+                       
+                        </div>
+    
+                        <div id="Infos">
+    
+                            <div id="circle2"><i class="fas fa-info"></i></div><p>Plus de 500 logements sont disponibles dans cette ville</p>
+                            
+                        </div>
+                           
+                    </div>
+
+                    <nav>
+
+                        <ul>
+                            <li>Hébergements</li>
+                            <li>Activités</li>
+                            <li>S'inscrire</li>
+                        </ul>
+    
+                    </nav>
+                
+
+                </header>
+
+                <section>
+
+                    <div id="bloc_total_hebergements">
+
+                    <header class="titre_hebergements">
+
+                        <h2>Hébergements à Marseille</h2>
+
+                    </header>
+
+                    <article>
+                        
+                        <div class="bloc_hebergements"> 
+
+                        <figure class="hebergements">
+
+                            <img src="hébergement/small/marcus-loke-WQJvWU_HZFo-unsplash.jpg"/>
+
+                            <figcaption>
+
+                                <h3>Auberge de la Cannebière</h3>
+
+                            </figcaption>
+
+                        </figure>
+
+                        <p>Nuit à partir de <strong>25€</strong></p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star i_color2"></i>
+                        </div>
+
+                        </div>
+
+                        <div class="bloc_hebergements">
+
+                        <figure class="hebergements">
+
+                            <img src="hébergement/small/fred-kleber-gTbaxaVLvsg-unsplash.jpg"/>
+
+                            <figcaption>
+
+                                <h3>Hôtel du port</h3>
+
+                            </figcaption>
+
+                        </figure>
+
+                        <p>Nuit à partir de <strong>52€</strong></p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+
+                        </div>
+
+                        <div class="bloc_hebergements"> 
+
+                            <figure class="hebergements">
+    
+                                <img src="hébergement/small/reisetopia-B8WIgxA_PFU-unsplash.jpg"/>
+    
+                                <figcaption>
+    
+                                    <h3>Hôtel Les mouettes</h3>
+    
+                                </figcaption>
+    
+                            </figure>
+    
+                            <p>Nuit à partir de <strong>76€</strong></p>
+    
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star i_color2"></i>
+                            </div>
+    
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <div id="bloc_total_populaires">
+                        
+                    <header class="titre_hebergements">
+
+                    <h2>Les plus populaires <i class="fas fa-chart-line i_color"></i></h2>
+
+                    </header>
+
+                    <aside>
+
+                        <div id="bloc_populaires"> 
+
+                            <figure class="hebergements_populaires">
+    
+                                <img src="hébergement/small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg"/>
+    
+                                <figcaption>
+    
+                                    <h3>Hôtel Le soleil du matin</h3>
+    
+                                </figcaption>
+    
+                            </figure>
+    
+                            <p>Nuit à partir de <strong>129€</strong></p>
+    
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+    
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </section>
+
+
+            </div>
+
+        </body>
+
+    </html>
+
+
+    
+            <!-- add et commit le folder des images sur github dans le repository -->
+
+            <!-- grosse div générale puis div rond puis div icone /fermeture div + span class texte-->
+
+            <!-- Attention à margin auto + width 100%, et revoir les spaces around, et refaire une div entre les asides pour pas tout bouger en même temps-->
+
+            <!-- border-box partout pour pas de soucis quand on zoom (Chaque contenu que tu mettrais dans un conteneur et que tu veux pas que ça merde) ou div { box-sizing:border-box } -->
+
+            <!-- Attention aux div qui sont sensées être uniques pour faire des étoiles grises et/ou des icones noires -->
+
+            <!-- pas de id dans les stars car star vide pour star grise -->
