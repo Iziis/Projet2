@@ -11,6 +11,7 @@
 
 body {
     font-family: Raleway, sans-serif;
+    margin-top:1rem;
 }
 
 
@@ -24,12 +25,14 @@ header
     height:410px;
 }
 
-.bloc_search {
+
+form {
     display:inline-flex; /* on aligne les enfants (map marker+ barre de recherche + bouton rechercher */
     overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec nom à rallonge) */
+    margin-bottom:1rem;
 }
 
-.map_marker {
+#map_marker {
     background-color: #F2F2F2;
     padding: 1rem 1.25rem;
     border-radius: 1rem 0 0 1rem;
@@ -56,11 +59,20 @@ header
     font-size: 1rem;
 }
 
+.white {
+
+    color:white;
+}
+
 #Filtres {
     display:inline-flex; /* on aligne les filtres côte à côte pour qu'ils soient pas les uns sous les autres */
     justify-content:space-around; /* on les espace et on ajoute un espace à gauche et à droite du contenu */
     margin-top:1rem;
     }
+
+.bloc:hover {
+background-color:#f3f8ff;
+}
     
 #Label {
     margin-right:1rem;
@@ -130,21 +142,27 @@ i {
 /* NAV */
 
 
+nav {
+    display:flex;
+}
+
 nav a {
-    margin-right: 2.5rem; /* on espace les liens de 35px */
+    margin-right: 1rem; /* on espace les liens */
     font-size:1.1rem;
     }
 
-
-#ligne{
-    border-top: 3px solid #0065FC;
-    color:#0065FC;
-    padding-bottom:1rem;
+.ligne{
+    border-top: 3px solid transparent;
 }
 
-#inscription {
-    font-weight: bold;
+#ligne2{
+    border-top: 3px solid transparent;
     color:#0065FC;
+}
+
+.ligne:hover{
+    color:#0065FC;
+    border-top: 3px solid #0065FC;
 }
 
 
@@ -293,6 +311,8 @@ nav a {
     margin-top:1rem;
 
     height:490px;
+
+    white-space: nowrap;
 }
 
 #titre_activités {
@@ -393,17 +413,8 @@ footer {
 footer div {
 
     margin-right:10rem;
+
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* Couleurs et liens */
