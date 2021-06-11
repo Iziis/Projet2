@@ -1,52 +1,96 @@
 
 /* Elements principaux de la page */  
 
-#bloc_page {
-    margin:auto;  /* on centre le design */
-    /* width:100%; /* on englobe toute la page pour fixer ses limites à 100% de l'espace disponible indispensable pour faire des rem plus tard*/
-    max-width: 1440px;
-    /*font-size:100%;*/
-    /*box-sizing: border-box;*/  
-}
-
-body {
+.body {
     font-family: Raleway, sans-serif;
     margin-top:1rem;
+    max-width:90rem;
+    margin:auto; /* on centre le contenu de la page */
+
+    padding-left:1rem; /* on fait en sorte que le contenu de body se décalle de la gauche en zoomant */
 }
 
 
 /* HEADER */
 
+.header {
 
-header
-{
-    display: flex;  /* on permet au header de s'aligner à côté de la nav, qui est aussi un élément flex */
-    justify-content:space-around; /* on espace les éléments et on ajoute un espace à gauche et à droite du contenu */
-    height:410px;
+display: grid; /* on définit le header comme un conteneur grid */
+
+grid-template-columns: auto 1fr auto auto; /* on créé 4 colonnes (logo + espace entre logo et nav + nav + sign up) et on définit leur size */
+grid-template-areas: "logo . navbar button"; /* on aligne de gauche à droite : logo avec (nav + SignUp) */
+
+align-items: center; /* on centre verticalement les éléments du conteneur */
+justify-items:center;
+
+}
+
+#logo {
+
+    grid-area: logo; /* permet de se servir de logo pour positionner le logo dans le header, grâce à grid-template-areas */
+    height: 2.813rem;
+}
+
+#nav_header {
+
+    grid-area: navbar; /* permet de se servir de navbar pour positionner nav_header dans le header, avec grid-template-areas */
+    display: flex; /* on aligne horizontalement les liens dans nav_header */
+    
+}
+
+#SignUp{
+    
+    grid-area: button; /* permet de se servir de button pour positionner SignUp dans le header, avec grid-template-areas */
+
+    font-weight:bold;
+    font-size:1.1rem;
+    border-top: 0.19rem solid transparent;
+    
+}
+
+#SignUp a {
+   color:#0065FC;
+}
+
+.liseret_bleu{
+    border-top: 0.19rem solid transparent;
 }
 
 
+.liseret_bleu:hover{
+    color:#0065FC;
+    border-top: 0.19rem solid #0065FC;
+}
+
+nav a {
+    margin-right: 2rem; /* on espace les liens dans la nav */
+    font-size:1.1rem;
+}
+
+
+
+/* MAIN */
+
+
 form {
-    display:inline-flex; /* on aligne les enfants (map marker+ barre de recherche + bouton rechercher */
-    overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec nom à rallonge) */
-    margin-bottom:1rem;
+    display:inline-flex; /* on aligne les enfants de form (map marker+ barre de recherche + bouton rechercher */
+    overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec un nom à rallonge) */
 }
 
 #map_marker {
     background-color: #F2F2F2;
-    padding: 1rem 1.25rem;
+    padding: 1rem 1.25rem; /* on crée de l'espace entre le map_marker et son bloc conteneur de couleur gris */
     border-radius: 1rem 0 0 1rem;
 }
 
 #search_barre {
-    font-size:1rem;
     border-right: none;
     border-left: none;
-    border-top: #F2F2F2 1px solid;
-    border-bottom: #F2F2F2 1px solid;
+    border-top: #F2F2F2 0.06rem solid;
+    border-bottom: #F2F2F2 0.06rem solid;
+    font-size:1rem;
     padding: 0 1.5rem;
     box-sizing: border-box; /* on permet à la barre de recherche et au bouton de rester collés ensemble */
-    width: 14rem;
 }
 
 #bouton {
@@ -59,39 +103,34 @@ form {
     font-size: 1rem;
 }
 
-.white {
-
-    color:white;
-}
-
 #Filtres {
-    display:inline-flex; /* on aligne les filtres côte à côte pour qu'ils soient pas les uns sous les autres */
-    justify-content:space-around; /* on les espace et on ajoute un espace à gauche et à droite du contenu */
-    margin-top:1rem;
+    display:flex; /* on aligne les filtres côte à côte pour qu'ils soient pas les uns sous les autres */
+    margin-top:1.5rem;
+    flex-wrap: wrap; /* permettre aux filtres de se placer en dessous quand ils dépassent la largeur de leur conteneur */
     }
-
-.bloc:hover {
-background-color:#f3f8ff;
-}
     
 #Label {
     margin-right:1rem;
     font-weight:bold;
     font-size:1.1rem;
-    margin-top:1.5rem;
+    margin-top:1.2rem;
     }
 
 .bloc {
-    display:flex; /* on permet au texte de se positionner côte à côte de l'icône) */
+    display:flex; /* on permet au texte de se positionner à côté de l'icône) */
     align-items: center; /* on aligne verticalement le texte avec l'icone */
     margin-right: 2rem;
-    border: 2px solid #d9d9d9;
+    border: 0.13rem solid #d9d9d9;
     border-radius: 2rem;
     margin-bottom: 1rem;    
     font-weight: bold;
     max-height:3.5rem; /* empecher div de grossir quand on zoom */
     min-height:3.5rem; /* empecher div de se réduire quand on zoom */
 }
+
+.bloc:hover {
+    background-color:#f3f8ff;
+    }
     
 .circle {
   
@@ -114,12 +153,12 @@ i {
 .txt {
     padding:1.3rem;
     font-size:1.1rem;
-    white-space: nowrap; /* empeche le retour à la ligne d'un texte */
+    white-space: nowrap; /* empeche le retour à la ligne d'un texte (même quand on zoom?) */
 }
 
 
 #Infos {
-    display:flex; /* on met côte à côte les éléments (i infos + texte) dans la div */
+    display:flex; /* on met côte à côte les éléments (i infos + texte) dans la div Infos */
     align-items:center; /* on les centre verticalement dans la div */
     margin-bottom:1rem;
 }
@@ -129,7 +168,7 @@ i {
     width: 2rem;
     min-height: 2rem; /* empecher cercle de rétrécir en hauteur */
     min-width: 2rem; /* empecher cercle de rétrécir en largeur */
-    border: solid 1px #d9d9d9;
+    border: solid 0.06rem #d9d9d9;
     border-radius: 2rem;
 
     display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur */
@@ -139,37 +178,11 @@ i {
 }
 
 
-/* NAV */
-
-
-nav {
-    display:flex;
-}
-
-nav a {
-    margin-right: 1rem; /* on espace les liens */
-    font-size:1.1rem;
-    }
-
-.ligne{
-    border-top: 3px solid transparent;
-}
-
-#ligne2{
-    border-top: 3px solid transparent;
-    color:#0065FC;
-}
-
-.ligne:hover{
-    color:#0065FC;
-    border-top: 3px solid #0065FC;
-}
-
-
 /* SECTION 1*/
 
+
 #hosting {
-    display:grid;  /* on transforme la section en conteneur */
+    display:grid;  /* on transforme la section en conteneur grid */
     column-gap: 2rem; /* on laisse 2rem d'espace en largeur entre le bloc hébergements et le bloc populaire */
     grid-template-columns: 6fr 3fr; /* on créé une colonne de 6fr et une colonne de 3fr, ce qui permet aux bloc hébergements et populaires de se mettre côte à côte */
 }
@@ -184,7 +197,7 @@ nav a {
     display: grid; /* on transforme l'élément en conteneur */
     column-gap: 2rem; /* on laisse 2rem d'espace en largeur entre les différents enfants du conteneur (ici les articles */
     row-gap: 2rem; /* on laisse 2rem d'espace en hauteur entre les différents enfants du conteneur (ici les articles */
-    grid-template-columns: repeat(3, 1fr); /* on créé une colonne de ???? les article se mettent côte à côte */
+    grid-template-columns: repeat(3, 1fr); /* on créé 3 colonnes de 1fr, les article se mettent côte à côte */
 }
 
 #titre_hebergements {
@@ -196,7 +209,7 @@ nav a {
     background-color: white;
     padding: 0.375rem;
     border-radius: 1.25rem;
-    box-shadow: 0 0 16px #0000002e;
+    box-shadow: 0 0 1rem #0000002e;
     box-sizing: border-box; /* la taille du bloc prend en compte les border, margin, et padding, si height élément = 100%, alors élément+border+margin+padding =100% avec box-sizing */
     height: 100%; 
 }
@@ -242,7 +255,7 @@ nav a {
 
     display: grid;
     row-gap: 2rem;
-    align-items: start;
+    /*align-items: start;*/
     grid-template-rows: auto repeat(3, 1fr);
     
 }
@@ -257,14 +270,14 @@ nav a {
     background-color: white;
     padding: 0.375rem;
     border-radius: 1.25rem;
-    box-shadow: 0 0 16px #0000002e;
+    box-shadow: 0 0 1rem #0000002e;
     box-sizing: border-box;
     height: 100%;
 }
 
 .bloc_article {
     display: flex;
-    align-items: stretch;
+    /*align-items: stretch;*/
     height: 100%;
     overflow: auto;
     
@@ -302,93 +315,86 @@ nav a {
 /* SECTION 2 */
 
 .activity {
+    
     display:grid;
     grid-template-columns: repeat(4, 1fr); /* on créé 4 fois une colonne de 1fr */
-    /*grid-template-rows: 14rem 2rem 2rem 2rem 14rem;*/
 
     column-gap: 2rem;
-    row-gap:2rem;
-    margin-top:1rem;
 
-    height:490px;
+    grid-template-areas: "bloc1 bloc2 bloc4 bloc5" /* on dispose les éléments entre 4 colonnes et 2 lignes */
+                         "bloc1 bloc3 bloc4 bloc6"; 
 
-    white-space: nowrap;
-}
+    text-align: center;
 
-#titre_activités {
-    margin-left:1rem;
+    height:30.625rem;
 }
 
 .bloc_activités1 {
-    border-radius:1.25rem;
-    grid-column:1/2; /* début colonne 1 et fin avant colonne 2 */
-    grid-row:1/6;
-    box-shadow: 0 0 16px #0000002e;
 
-    text-align: center;
-    height: 460px;
+    border-radius:1.25rem;
+    box-shadow: 0 0 1rem #0000002e;
+
+    height: 28.4rem;
+
+    grid-area: bloc1;
     
 }
 
 .bloc_activités2 {
+    
     border-radius:1.25rem;
-    grid-column:2/3;
-    grid-row:1/3; /* ligne 1 jusqu'à ligne 3 */
-    box-shadow: 0 0 16px #0000002e;
+    box-shadow: 0 0 1rem #0000002e;
 
-    text-align: center;
-    height: 210px;
+    height: 13rem;
+
+    grid-area: bloc2;
 }
 
 .bloc_activités3 {
+
     border-radius:1.25rem;
-    grid-column:2/3;
-    grid-row:3/4;
-    box-shadow: 0 0 16px #0000002e;
+    box-shadow: 0 0 1rem #0000002e;
 
-    text-align: center;
-    height: 210px;
+    height: 13rem;
 
-    margin-bottom: 4rem;;
-
+    grid-area: bloc3;
 }
 
 .bloc_activités4 {
-    border-radius:1.25rem;
-    grid-column:3/4;
-    grid-row:1/6;
-    box-shadow: 0 0 16px #0000002e;
 
-    text-align: center;
-    height: 460px;
+    border-radius:1.25rem;
+    box-shadow: 0 0 1rem #0000002e;
+
+    height: 28.4rem;
+    
+    grid-area: bloc4;
 }
 
 .bloc_activités5 {
-    border-radius:1.25rem;
-    grid-column:4/5;
-    grid-row:1/3;
-    box-shadow: 0 0 16px #0000002e;
 
-    text-align: center;
-    height: 210px;
+    border-radius:1.25rem;
+    box-shadow: 0 0 1rem #0000002e;
+    
+    height: 13rem;
+    
+    grid-area: bloc5;
 }
 
 .bloc_activités6 {
-    border-radius:1.25rem;
-    grid-column:4/5;
-    grid-row:3/6;
-    box-shadow: 0 0 16px #0000002e;
 
-    text-align: center;
-    height: 210px;
+    border-radius:1.25rem;
+    box-shadow: 0 0 1rem #0000002e;
+    
+    height: 13rem;
+    
+    grid-area: bloc6;
 }
 
 .img_activités1 {
 
     border-radius: 1rem 1rem 0 0;
     width:100%;
-    height: 400px;
-    object-fit: cover;
+    height:24.5rem;
   
 }
 
@@ -396,9 +402,12 @@ nav a {
 
     border-radius: 1rem 1rem 0 0;
     width:100%;
-    height: 150px;
-    object-fit: cover;
+    height: 9.2rem;
   
+}
+
+.txt_activités {
+    margin-top:1rem;
 }
 
 /* Footer */
@@ -431,6 +440,188 @@ footer div {
 a {
     text-decoration: none;
     color:black;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1025px) {
+
+    .body {
+        border:1px solid green;
+    }
+   
+}
+
+@media screen and (min-width: 601px) and (max-width:1024px) {
+
+    .body {
+
+        max-width:1024px;
+        margin:auto;
+        border:1px solid blue;
+    }
+   
+}
+
+
+/* PHONE */
+
+@media screen and (min-width:320px) and (max-width:600px) {  
+
+    .body {
+    
+    max-width:600px;
+    margin:auto;
+    border: 1px solid red;
+
+    }
+
+    /* HEADER */
+
+    .header {
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "logo . button" "navbar navbar navbar";
+    
+    }
+
+    #nav_header {
+
+    margin-top:1rem;
+    justify-content:space-around;
+    width:100%;
+    
+    }  
+
+    nav a {
+    margin:0;
+    }
+
+    .liseret_bleu:hover {
+
+    color:#0065FC;
+    border-bottom: 0.19rem solid #0065FC;
+    border-top:none;
+
+    }
+
+    
+    /* MAIN */
+
+    /* MAIN - SECTION 1 */
+
+    #Search {
+    padding-left:2.7rem;
+    }
+    
+    #bouton_txt {
+    display:none;
+    }
+    
+    i.bouton_loupe.fas.fa-search {
+    color:white;
+    }    
+
+    #Filtres {
+    flex-wrap:wrap;
+    }
+
+    #Label {
+    width:100%;
+    margin-top:0;        
+    }
+
+    .bloc {
+    margin-right:1rem;
+    }
+
+    #circle2 {
+    margin-right:0.5rem;
+    }
+
+
+    /* MAIN - SECTION 2 */
+
+    #hosting {
+
+    display:flex;
+    flex-direction:column-reverse;
+
+    }
+
+    #bloc_total_hebergements {
+
+    display:flex;
+    flex-direction:column;
+    background-color: transparent;
+
+    }
+
+    #bloc_total_populaires {
+
+    flex-direction: column;
+    border-radius:0;
+
+    }
+
+    #titre_activités {
+    margin-left:2rem;
+    }
+
+    .activity {
+        
+    display:flex;
+    flex-direction: column;
+    row-gap:1.5rem;
+    padding:2rem; /* espace entre les blocs photos et leur div, qui permet size le bloc en largeur */
+    height:85rem;
+
+    }
+
+    .img_activités1 {
+
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    height: 9rem;
+    object-fit: cover;
+
+    }
+
+    .img_activités2 {
+
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    height: 9rem;
+    object-fit: cover;
+  
+    }
+
+    .photos_activités {
+
+    height:9rem;
+    width:100%;
+
+    }
+
+    .bloc_activités1 {
+    height: 13.125rem;   
+    }
+
+    .bloc_activités4 {
+    height: 13.125rem;
+    }
+
+    /* MAIN - FOOTER */
+
+
+    footer {
+     flex-direction: column;
+     padding-left:2rem;
+     border-radius: 0;
+    }
+
+
 }
 
 
