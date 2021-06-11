@@ -514,6 +514,10 @@ a {
     #Search {
     padding-left:2.7rem;
     }
+
+    #search_barre {
+        padding:0;
+    }
     
     #bouton_txt {
     display:none;
