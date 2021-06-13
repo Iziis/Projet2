@@ -249,6 +249,7 @@ border-radius: 1.25rem;
 box-shadow: 0 0 1rem #0000002e;
 box-sizing: border-box; /* la taille du bloc prend en compte les border, margin, et padding, si height élément = 100%, alors élément+border+margin+padding =100% avec box-sizing */
 height: 100%; 
+width:100%;
 
 }
 
