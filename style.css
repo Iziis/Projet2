@@ -402,7 +402,7 @@ height:600px;
 
 }
 
-#section2 h2 {
+.section2 h2 {
 grid-area: titre;
 }
 
@@ -553,10 +553,6 @@ a {
 
     }
 
-    .section2 h2 {
-    white-space:nowrap;
-    }
-
     .bloc_article {
     padding:0;
     height: 12rem;
@@ -628,7 +624,7 @@ a {
     grid-template-rows: 4rem 14rem 14rem;
     gap: 2rem;
     grid-template-areas:
-        "titre . ."
+        "titre titre ."
         "bloc1 bloc2 bloc3"
         "bloc4 bloc5 bloc6";
     padding: 2rem;
