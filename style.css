@@ -1,430 +1,484 @@
 
 /* Elements principaux de la page */  
 
-.body {
-    font-family: Raleway, sans-serif;
-    margin-top:1rem;
-    max-width:90rem;
-    margin:auto; /* on centre le contenu de la page */
+body {
 
-    padding-left:1rem; /* on fait en sorte que le contenu de body se décalle de la gauche en zoomant */
+font-family: Raleway, sans-serif;
+max-width:90rem;
+margin:auto;
+font-size: 100%;
+
 }
-
 
 /* HEADER */
 
-.header {
+/* TOP HEADER */
 
-display: grid; /* on définit le header comme un conteneur grid */
+header {
 
-grid-template-columns: auto 1fr auto auto; /* on créé 4 colonnes (logo + espace entre logo et nav + nav + sign up) et on définit leur size */
-grid-template-areas: "logo . navbar button"; /* on aligne de gauche à droite : logo avec (nav + SignUp) */
+box-sizing: content-box;
+margin: auto;
+padding: 1.25rem;
 
-align-items: center; /* on centre verticalement les éléments du conteneur */
-justify-items:center;
+}
+
+#top_header {
+
+display: grid;
+grid-template-columns: auto 16rem 7rem;
+grid-template-rows: 1fr 2.2fr;
+grid-template-areas: "img navbar button";
+align-items: center;
 
 }
 
 #logo {
-
-    grid-area: logo; /* permet de se servir de logo pour positionner le logo dans le header, grâce à grid-template-areas */
-    height: 2.813rem;
+grid-area: img;
 }
 
-#nav_header {
-
-    grid-area: navbar; /* permet de se servir de navbar pour positionner nav_header dans le header, avec grid-template-areas */
-    display: flex; /* on aligne horizontalement les liens dans nav_header */
-    
-}
-
-#SignUp{
-    
-    grid-area: button; /* permet de se servir de button pour positionner SignUp dans le header, avec grid-template-areas */
-
-    font-weight:bold;
-    font-size:1.1rem;
-    border-top: 0.19rem solid transparent;
-    
-}
-
-#SignUp a {
-   color:#0065FC;
-}
-
-.liseret_bleu{
-    border-top: 0.19rem solid transparent;
-}
-
-
-.liseret_bleu:hover{
-    color:#0065FC;
-    border-top: 0.19rem solid #0065FC;
+nav {
+grid-area: navbar;   
 }
 
 nav a {
-    margin-right: 2rem; /* on espace les liens dans la nav */
-    font-size:1.1rem;
+margin-left: 1.5rem;
+padding-top: 1rem;
 }
 
+nav a:hover {
+color:#0065FC;
+border-top: 2px solid #0065FC;
+}
 
+#SignUp {
+    
+grid-area: button;
 
-/* MAIN */
+font-weight:bold;
+font-size:1.1rem;
+color:#0065FC;
+    
+}
 
+h1 {
+font-size: 1.5rem;
+}
 
-#form {
-    display:inline-flex; /* on aligne les enfants de form (map marker+ barre de recherche + bouton rechercher */
-    overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec un nom à rallonge) */
+/* BOTTOM HEADER */
+
+form {
+
+display:flex;
+flex-wrap: wrap;
+overflow: auto; /* on empeche le contenu texte de sortir du bloc si y'a trop de texte (genre une ville avec un nom à rallonge) */
+
 }
 
 #map_marker {
-    background-color: #F2F2F2;
-    padding: 1rem 1.25rem; /* on crée de l'espace entre le map_marker et son bloc conteneur de couleur gris */
-    border-radius: 1rem 0 0 1rem;
+    
+background-color: #F2F2F2;
+padding: 1rem 1.25rem; /* on crée de l'espace entre le map_marker et son bloc conteneur de couleur gris */
+border-radius: 1rem 0 0 1rem;
+
 }
 
-#search_barre {
-    border-right: none;
-    border-left: none;
-    border-top: #F2F2F2 0.06rem solid;
-    border-bottom: #F2F2F2 0.06rem solid;
-    font-size:1rem;
-    padding: 0 1.5rem;
-    box-sizing: border-box; /* on permet à la barre de recherche et au bouton de rester collés ensemble */
+#ville {
+    
+border-right: none;
+border-left: none;
+border: #F2F2F2 0.06rem solid;
+font-size:1rem;
+padding: 1rem 1.5rem;
+box-sizing: border-box; 
+   
 }
 
 #bouton {
-    background-color: #0065FC;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 0 1rem 1rem 0;
-    padding: 0 1.5rem;
-    font-size: 1rem;
+    
+background-color: #0065FC;
+color: white;
+font-weight: bold;
+border: none;
+border-radius: 0 1rem 1rem 0;
+font-size: 1rem;
+    
+}
+
+#bouton_txt {
+padding-left:1rem;
 }
 
 #Filtres {
-    display:flex; /* on aligne les filtres côte à côte pour qu'ils soient pas les uns sous les autres */
-    margin-top:1.5rem;
-    flex-wrap: wrap; /* permettre aux filtres de se placer en dessous quand ils dépassent la largeur de leur conteneur */
-    }
+
+display:flex; 
+margin-top:1.5rem;
+flex-wrap: wrap; /* permettre aux filtres de se placer en dessous quand ils dépassent la largeur de leur conteneur */
+
+}
     
-#Label {
-    margin-right:1rem;
-    font-weight:bold;
-    font-size:1.1rem;
-    margin-top:1.2rem;
-    }
+#titre_filtres {
+
+margin-right:1rem;
+font-weight:bold;
+font-size:1.1rem;
+margin-top:1.2rem;
+
+}
 
 .bloc {
-    display:flex; /* on permet au texte de se positionner à côté de l'icône) */
-    align-items: center; /* on aligne verticalement le texte avec l'icone */
-    margin-right: 2rem;
-    border: 0.13rem solid #d9d9d9;
-    border-radius: 2rem;
-    margin-bottom: 1rem;    
-    font-weight: bold;
-    max-height:3.5rem; /* empecher div de grossir quand on zoom */
-    min-height:3.5rem; /* empecher div de se réduire quand on zoom */
+
+display:flex; 
+align-items: center; /* on aligne verticalement le texte avec l'icone */
+margin-right: 2rem;
+border: 0.13rem solid #d9d9d9;
+border-radius: 2rem;
+margin-bottom: 1rem;    
+font-weight: bold;
+max-height:3.5rem; /* empecher div de grossir quand on zoom */
+min-height:3rem; /* empecher div de se réduire quand on zoom */
+
 }
 
 .bloc:hover {
-    background-color:#f3f8ff;
-    }
+background-color:#f3f8ff;
+}
     
 .circle {
   
-    background-color: #DEEBFF;
-    border-radius: 2rem;
-    height: 3rem;
-    width: 3rem;
-    min-height: 3.5rem; /* empecher cercle de rétrécir en hauteur */
-    min-width: 3.5rem; /* empecher cercle de rétrécir en largeur */
+background-color: #DEEBFF;
+border-radius: 2rem;
 
-    display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur*/
-    align-items: center;
-    justify-content: center;
+height: 3.5rem; /* 3rem */
+width: 3.5rem; /* 2.85 rem */
+
+/*min-height: 3.5rem; /* empecher cercle de rétrécir en hauteur */
+/*min-width: 3.5rem; /* empecher cercle de rétrécir en largeur */
+
+display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur*/
+align-items: center;
+justify-content: center;
+
 }
 
 i {
-    color:#0065FC;
+color:#0065FC;
 }
 
 .txt {
-    padding:1.3rem;
-    font-size:1.1rem;
-    white-space: nowrap; /* empeche le retour à la ligne d'un texte (même quand on zoom?) */
+
+padding:1.3rem;
+font-size:1.1rem;
+white-space: nowrap; /* empeche le retour à la ligne d'un texte */
+
 }
 
-
 #Infos {
-    display:flex; /* on met côte à côte les éléments (i infos + texte) dans la div Infos */
-    align-items:center; /* on les centre verticalement dans la div */
-    margin-bottom:1rem;
+
+display:flex;
+align-items:center; /* on les centre verticalement dans la div */
+
 }
 
 #circle2 {
-    height: 2rem;
-    width: 2rem;
-    min-height: 2rem; /* empecher cercle de rétrécir en hauteur */
-    min-width: 2rem; /* empecher cercle de rétrécir en largeur */
-    border: solid 0.06rem #d9d9d9;
-    border-radius: 2rem;
 
-    display: flex; /* on rend le cercle flex pour pouvoir se servir d'align-items et justify-content pour centrer l'icone à l'intérieur */
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem; /* on laisse 1rem d'espace entre le i cerclé et le texte qui suit */
+font-size: 0.75rem;
+max-width: 1.5rem;
+max-height: 1.5rem;
+min-width: 1.5rem;
+min-height: 1.5rem;
+line-height: 1.5rem;
+text-align: center;
+border: 2px solid #d6d4d4;
+border-radius: 50%;
+margin-right:1rem;
+
 }
 
 
 /* SECTION 1*/
 
-
 #hosting {
-    display:grid;  /* on transforme la section en conteneur grid */
-    column-gap: 2rem; /* on laisse 2rem d'espace en largeur entre le bloc hébergements et le bloc populaire */
-    grid-template-columns: 6fr 3fr; /* on créé une colonne de 6fr et une colonne de 3fr, ce qui permet aux bloc hébergements et populaires de se mettre côte à côte */
+
+display: flex;
+gap:2rem;
+box-sizing: border-box;
+
 }
 
 /* ARTICLE */
 
-#bloc_total_hebergements {
-    background-color: #F2F2F2;
-    border-radius: 1.5rem;
-    padding: 2rem;
+article {
+
+background-color: #F2F2F2;
+border-radius: 1.5rem;
+padding: 0 2rem 0 2rem;;
     
-    display: grid; /* on transforme l'élément en conteneur */
-    column-gap: 2rem; /* on laisse 2rem d'espace en largeur entre les différents enfants du conteneur (ici les articles */
-    row-gap: 2rem; /* on laisse 2rem d'espace en hauteur entre les différents enfants du conteneur (ici les articles */
-    grid-template-columns: repeat(3, 1fr); /* on créé 3 colonnes de 1fr, les article se mettent côte à côte */
+display: grid;
+grid-template-columns: repeat(3, 1fr); 
+grid-template-rows: 4rem 14rem 14rem 5.5rem;
+grid-template-areas:
+        "titre titre ."
+        "bloc1 bloc2 bloc3"
+        "bloc4 bloc5 bloc6"
+        "more . .";
+
+gap: 2rem;
+justify-items: center;
+align-items: center;
+
+box-sizing: border-box;
+width: 100%;
+height: 100%;
+margin-bottom:1rem;
+
 }
 
-#titre_hebergements {
-    margin:0; /* on enlève les marges */
-    grid-column: 1/-1; /* on place l'élément en première ligne de la grille, et on fait s'afficher les autres éléments en dessous (ici permet de mettre les article sous le titre) */
+#titre_article {
+
+grid-area: titre;
+align-self: start;
+justify-self: start;
+
 }
 
-.bloc_hebergements {
-    background-color: white;
-    padding: 0.375rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-    box-sizing: border-box; /* la taille du bloc prend en compte les border, margin, et padding, si height élément = 100%, alors élément+border+margin+padding =100% avec box-sizing */
-    height: 100%; 
+.bloc_article {
+
+background-color: white;
+padding: 0.375rem;
+border-radius: 1.25rem;
+box-shadow: 0 0 1rem #0000002e;
+box-sizing: border-box; /* la taille du bloc prend en compte les border, margin, et padding, si height élément = 100%, alors élément+border+margin+padding =100% avec box-sizing */
+height: 100%; 
+
 }
 
-.hebergements {
-    margin:0; /* on enlève les marges autour de l'élément (ici on on enlève les marges entre la photo et son conteneur) */
+#bloc_article1 {
+grid-area: bloc1;
 }
 
-.img_hebergements { 
-
-    height: 9rem;
-    object-fit: cover; /* on permet aux images de s'étendre à la bonne dimension, sans que le rendu visuel soit compressé */
-    max-width: 100%;
-    width: 100%;
-    max-height: 100%;
-    border-radius: 1rem 1rem 0 0;
+#bloc_article2 {
+grid-area: bloc2;
 }
 
-.infos_hebergements {
-    margin: 0.25rem 0.75rem 0 0.75rem;
+#bloc_article3 {
+grid-area: bloc3;
 }
 
-.prix_hebergements {
-    margin: 0.25rem 0.75rem 0.25rem 0.75rem;
+#bloc_article4 {
+grid-area: bloc4;
 }
 
-.stars {
-    margin: 0 0.75rem 0.25rem 0.75rem;
+#bloc_article5 {
+grid-area: bloc5;
+}
+
+#bloc_article6 {
+grid-area: bloc6;
 }
 
 #more {
-    font-weight:bold;
+grid-area:more;
+font-weight:bold;
+align-self: start; /* utile en version mobile */
+justify-self: start;
 }
 
+.photo_article img {
+
+width: 100%;
+height: 8rem; 
+border-radius: 1rem; 
+object-fit: cover; /* on permet aux images de s'étendre à la bonne dimension, sans que le rendu visuel soit compressé */
+
+
+}
+
+.prix_article {
+
+padding: 0.5rem 0 0.5rem 0.5rem;
+line-height: 1.5rem;
+
+}
 
 /* ASIDE */
 
 
-#bloc_total_populaires {
-    background-color: #F2F2F2;
-    border-radius: 1.5rem;
-    padding: 2rem;
+aside {
 
-    display: grid;
-    row-gap: 2rem;
-    /*align-items: start;*/
-    grid-template-rows: auto repeat(3, 1fr);
+background-color: #F2F2F2;
+border-radius: 1.5rem;
+padding: 2rem;
+
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 3rem repeat(3, 1fr); /* 3 rem pour le titre qui est grid */
+grid-template-areas: "titre"
+                     "bloc1"
+                     "bloc2"
+                     "bloc3";
+
+align-items:center;
+height:630px;
+
     
 }
 
-#titre_populaires {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+#titre_aside {
+
+margin-bottom:2rem;
+width: 100%;
+
+display: flex;
+justify-content:space-around;
+
+grid-area: titre;
+ 
 }
 
-.bloc_populaires {
-    background-color: white;
-    padding: 0.375rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-    box-sizing: border-box;
-    height: 100%;
+#icone_aside i {
+
+color: black;
+line-height:4.7rem;
+font-size:1.2rem;
+
 }
 
-.bloc_article {
-    display: flex;
-    /*align-items: stretch;*/
-    height: 100%;
-    overflow: auto;
-    
+.bloc_aside {
+
+background-color: white;
+border-radius: 1.25rem;
+box-shadow: 0 0 1rem #0000002e;
+box-sizing: border-box;
+
+display:flex; 
+width: 100%;
+height: 160px;
+border: 5px solid white;
+  
 }
 
-.photos_populaires {
-    position: relative;
-    min-height: 100%;
-    width: 33%;
-    min-width: 33%;
-    max-width: 33%;
+#bloc_aside1 {
+grid-area: bloc1;
+}
+
+#bloc_aside2 {
+grid-area: bloc2;
+}
+
+#bloc_aside3 {
+grid-area: bloc3;
 }
 
 
-.img_populaires {
-    border-radius: 1rem 0 0 1rem;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.photos_aside img {
+
+border-radius: 1rem 0 0 1rem; 
+width: 10rem; 
+height: 100%;
+object-fit: cover; /* on permet aux images de s'étendre à la bonne dimension, sans que le rendu visuel soit compressé */
+
 }
 
-.prix_populaires {
-    display: flex;
-    flex-direction: column;
-    padding-left:1rem;
+.prix_aside {
+
+width: 11rem;
+padding: 0 1rem 0 1rem; 
      
-}
-
-.white_space{
-    flex: 1;
 }
 
 
 /* SECTION 2 */
 
-.activity {
+.section2 {
     
-    display:grid;
-    grid-template-columns: repeat(4, 1fr); /* on créé 4 fois une colonne de 1fr */
+display:grid;
+grid-template-columns: repeat(4, 1fr); /* on créé 4 fois une colonne de 1fr */
+grid-template-areas: "titre . . ."
+                     "bloc1 bloc2 bloc4 bloc5" 
+                     "bloc1 bloc3 bloc4 bloc6"; 
+column-gap: 2rem;
+height:600px;
 
-    column-gap: 2rem;
-
-    grid-template-areas: "bloc1 bloc2 bloc4 bloc5" /* on dispose les éléments entre 4 colonnes et 2 lignes */
-                         "bloc1 bloc3 bloc4 bloc6"; 
-
-    text-align: center;
-
-    height:30.625rem;
 }
 
-.bloc_activités1 {
-
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-
-    height: 28.4rem;
-
-    grid-area: bloc1;
-    
+#section2 h2 {
+grid-area: titre;
 }
 
-.bloc_activités2 {
-    
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-
-    height: 13rem;
-
-    grid-area: bloc2;
+#bloc_activités1 {
+grid-area: bloc1;
 }
 
-.bloc_activités3 {
-
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-
-    height: 13rem;
-
-    grid-area: bloc3;
+#bloc_activités2 {
+grid-area: bloc2;
 }
 
-.bloc_activités4 {
-
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-
-    height: 28.4rem;
-    
-    grid-area: bloc4;
+#bloc_activités3 {
+grid-area: bloc3;
 }
 
-.bloc_activités5 {
-
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-    
-    height: 13rem;
-    
-    grid-area: bloc5;
+#bloc_activités4 {
+grid-area: bloc4;
 }
 
-.bloc_activités6 {
-
-    border-radius:1.25rem;
-    box-shadow: 0 0 1rem #0000002e;
-    
-    height: 13rem;
-    
-    grid-area: bloc6;
+#bloc_activités5 {
+grid-area: bloc5;
 }
 
-.img_activités1 {
+#bloc_activités6 {
+grid-area: bloc6;
+}
 
-    border-radius: 1rem 1rem 0 0;
-    width:100%;
-    height:24.5rem;
+.image_longue {
+
+border-radius: 1rem;
+height: 460px;
+box-shadow: 1px 1px 5px grey;
+font-weight: bold;
+text-align: center;
+
+}
+
+.image_longue img {
+
+border-radius: 1rem 1rem 0 0;
+width:100%;
+height:400px;
+object-fit: cover;
   
 }
 
-.img_activités2 {
+.image_courte {
 
-    border-radius: 1rem 1rem 0 0;
-    width:100%;
-    height: 9.2rem;
+border-radius: 1rem;
+box-shadow: 1px 1px 5px grey;
+height: 206px;
+font-weight: bold;
+text-align: center;
+
+}
+
+.image_courte img {
+
+border-radius: 1rem 1rem 0 0;
+width:100%;
+height: 146px;
+object-fit: cover;
   
 }
 
-.txt_activités {
-    margin-top:1rem;
-}
 
 /* Footer */
 
 footer {
-    display:flex;
-    justify-content:space-evenly;
-    background-color:#F2F2F2;
-    border-radius:1.25rem;
-}
 
-footer div {
-
-    margin-right:10rem;
+display:flex;
+justify-content:space-evenly;
+background-color:#F2F2F2;
+border-radius:1.25rem;
+padding: 1rem;
 
 }
-
 
 /* Couleurs et liens */
 
@@ -444,23 +498,160 @@ a {
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 1025px) {
-
-    .body {
-        border:1px solid green;
-    }
-   
-}
+/* TABLETTE */
 
 @media screen and (min-width: 601px) and (max-width:1024px) {
 
-    .body {
-
-        max-width:1024px;
-        margin:auto;
-        border:1px solid blue;
+    body {
+    max-width:1024px;
     }
-   
+
+    /* HEADER */
+
+    #top_header {
+    grid-template-columns: auto 15rem 7rem;
+    }
+
+    #titre_header {
+    margin-bottom:1rem;
+    }
+  
+    #SignUp {
+    margin-left: 1rem;
+    }
+
+    #Filtres {
+    margin-top:0.5rem;
+    }
+
+    #titre_filtres {
+    width:100%;
+    }
+
+    .bloc {
+    margin-right: 1rem;
+    height:3rem;
+    }
+    
+    .circle {
+    height: 3rem;
+    width: 2.85rem;
+    }
+    
+    #circle2 {
+    margin-right:0.5rem;
+    }
+
+    /* SECTION 1 */
+
+    #hosting {
+
+    display:flex;
+    flex-direction:column-reverse;
+    padding:2rem;
+
+    }
+
+    .section2 h2 {
+    white-space:nowrap;
+    }
+
+    .bloc_article {
+    padding:0;
+    height: 12rem;
+    text-align: center;
+
+    }
+
+    .photo_article img {
+    height:7rem;
+    }
+
+    article {
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 3rem repeat(3, 12rem) 2rem;
+    grid-template-areas:
+            "titre titre"
+            "bloc1 bloc2"
+            "bloc3 bloc4"
+            "bloc5 bloc6"
+            "more .";
+
+    margin-bottom:0;
+
+    }
+
+    .prix_article {
+    padding:0;
+    }
+
+    aside {
+
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-areas:
+            ". titre ."
+            " . bloc1 ."
+            ". bloc2 ."
+            ". bloc3 .";
+    }
+
+    .photos_aside img {
+    width: 13rem;
+    }
+
+    .prix_aside {
+    width: 15rem;
+    }
+
+    #more {
+    justify-self: center;
+    }
+
+    .bloc_aside {
+    width:auto;
+    }
+
+    #titre_aside {
+    justify-content:center;
+        
+    }
+
+    #icone_aside {
+    margin-left:1rem;
+    }
+
+    .section2 {
+        
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 4rem 14rem 14rem;
+    gap: 2rem;
+    grid-template-areas:
+        "titre . ."
+        "bloc1 bloc2 bloc3"
+        "bloc4 bloc5 bloc6";
+    padding: 2rem;
+    margin-top:-2rem;
+
+}
+
+.image_longue img {
+    height: 140px;
+}
+
+.image_longue {
+    height: 210px;
+}
+
+.image_courte {
+    height: 210px;
+}
+
+.image_courte img {
+    height: 140px;
+}
+
+
 }
 
 
@@ -468,85 +659,84 @@ a {
 
 @media screen and (min-width:320px) and (max-width:600px) {  
 
-    .body {
-    
+    body {
     max-width:600px;
-    margin:auto;
-    border: 1px solid red;
-
     }
 
     /* HEADER */
 
-    .header {
+    #top_header {
 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "logo . button" "navbar navbar navbar";
-    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 0.7fr 1fr;
+    grid-template-areas: "img . button"
+                         "navbar navbar navbar"
+                         "titre titre titre";
+    align-items: center;
+    justify-items: center;
+        
     }
 
-    #nav_header {
+    nav {
 
-    margin-top:1rem;
-    justify-content:space-around;
     width:100%;
-    
-    }  
+    display:flex; 
+        
+    }
 
     nav a {
-    margin:0;
+
+    width:100%;
+    margin: 0;
+    border-bottom: 2px rgba(196, 192, 192, 0.24) solid;
+    padding-bottom: 1rem;
+    text-align: center;
+
     }
 
-    .liseret_bleu:hover {
+    nav a:hover {
 
-    color:#0065FC;
-    border-bottom: 0.19rem solid #0065FC;
     border-top:none;
+    color:#0065FC;
+    border-bottom: 2px solid #0065FC;
 
     }
 
-    
-    /* MAIN */
+    #titre_header {
+    grid-area: titre;
+    }   
 
-    /* MAIN - SECTION 1 */
-
-    #Search {
-    padding-left:2.7rem;
-    }
-
-    #search_barre{
-        padding:0 1rem;
-       
-    }
-    
     #bouton_txt {
     display:none;
     }
-    
+        
     i.bouton_loupe.fas.fa-search {
     color:white;
-    }    
-
-    #Filtres {
-    flex-wrap:wrap;
+    }  
+    
+    #Fitres {
+    margin-top:1rem;
     }
 
-    #Label {
+    #titre_filtres {
     width:100%;
-    margin-top:0;        
     }
 
     .bloc {
-    margin-right:1rem;
+    margin-right: 0.5rem;
+    height:3rem;
+    }
+
+    .circle {
+    height: 3rem;
+    width: 2.85rem;
     }
 
     #circle2 {
     margin-right:0.5rem;
     }
 
-
-    /* MAIN - SECTION 2 */
+    /* SECTION 1 */
 
     #hosting {
 
@@ -555,7 +745,7 @@ a {
 
     }
 
-    #bloc_total_hebergements {
+    article {
 
     display:flex;
     flex-direction:column;
@@ -563,69 +753,75 @@ a {
 
     }
 
-    #bloc_total_populaires {
+    aside {
 
+    display:flex;
     flex-direction: column;
     border-radius:0;
+    gap:2rem;
+    padding:1.75rem;
+    height:670px;
 
     }
 
-    #titre_activités {
-    margin-left:2rem;
+    #titre_aside {
+    margin-bottom:0;
+    justify-content: center;
     }
 
-    .activity {
+    #icone_aside {
+    margin-left:1rem;
+    }
+
+    .prix_aside {
+
+    padding: 0 0.5rem 0 0.5rem;
+    width:11rem;
+
+    }
+
+    .photos_aside img {
+    width: 8rem;
+    }
+
+    /* SECTION 2 */
+
+    .section2 {
         
     display:flex;
     flex-direction: column;
     row-gap:1.5rem;
-    padding:2rem; /* espace entre les blocs photos et leur div, qui permet size le bloc en largeur */
-    height:85rem;
-
+    padding:2rem; 
+    height:100%;
+    margin-top:-3rem;
+    
     }
 
-    .img_activités1 {
-
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    height: 9rem;
-    object-fit: cover;
-
+    .image_longue {
+    height: 200px;
     }
-
-    .img_activités2 {
-
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    height: 9rem;
-    object-fit: cover;
-  
+            
+    .image_longue img {
+    height:150px;
     }
-
-    .photos_activités {
-
-    height:9rem;
-    width:100%;
-
+            
+    .image_courte {
+    height: 200px;
     }
-
-    .bloc_activités1 {
-    height: 13.125rem;   
+        
+    .image_courte img {
+    height: 150px;
     }
-
-    .bloc_activités4 {
-    height: 13.125rem;
-    }
-
-    /* MAIN - FOOTER */
-
+        
+    /* FOOTER */
 
     footer {
-     flex-direction: column;
-     padding-left:2rem;
-     border-radius: 0;
-    }
 
+    flex-direction: column;
+    padding-left:2rem;
+    border-radius: 0;
+
+    }
 
 }
 
